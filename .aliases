@@ -1,0 +1,103 @@
+#Terminal Aliases
+alias zs="source ~/.zshrc"
+alias L="| less"
+alias biggest="find -type f -printf '\'%s %p\n'\'' | sort -nr | head -n 40 | gawk '{ print \$1/1000000 \" \" \$2 \" \" \$3 \" \" \$4 \" \" \$5 \" \" \$6 \" \" \$7 \" \" \$8 \" \" \$9 }'"
+alias la="ls -a"
+alias lh="ls -ld .??*"
+alias p="python3"
+alias sync="./sync-proj"
+alias v="vim"
+alias pen="open http://codepen.io/pen"
+alias grades="node ~/Dropbox/Projects/Personal/gradeCheck/app.js"
+#Brew Aliases
+alias br="brew"
+alias brc="brew cask"
+
+#Useful Tool Aliases
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias fs="stat -f \"%z bytes\""
+# Stuff I never really use but cannot delete either because of http://xkcd.com/530/
+alias stfu="osascript -e 'set volume output muted true'"
+alias pumpitup="osascript -e 'set volume 10'"
+# Hide/show all desktop icons (useful when presenting)
+alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+#TODO ALIASES
+alias todo="cd ~ && nd todo.md"
+alias etodo="v ~/todo.md"
+#LaTeX ALIASES
+alias latexmk='latexmk.pl -pdf -pvc'
+
+#SPOTIFY ALIASES
+alias spotify="osascript ~/bin//SpotifyControl/SpotifyControl.scpt"
+# GLOBAL ALAISES
+alias -g L="|less" # Write L after a command to page through the output.
+alias -g TL='| tail -20'
+# EDITOR ALIASES
+alias v="vim"
+alias e="$EDITOR"
+#TMUX ALIASES
+alias t="tmux"
+alias tsource="tmux source-file ~/.tmux.conf"
+alias tk="tmux kill-session -t"
+alias tl="tmux ls"
+alias ta="tmux attach -t"
+#EDIT ALIASES
+alias eali="e ~/.aliases"
+
+# ZSH ALIASES
+alias zshconfig="e ~/.zshrc"
+alias ohmyzsh="e ~/.oh-my-zsh"
+
+#Show/Hide Desktop
+alias hidedesk="defaults write com.apple.finder CreateDesktop -bool false; killall Finder"
+alias showdesk="defaults write com.apple.finder CreateDesktop -bool true; killall Finder"
+
+#Matchbox AWS alias
+alias aws-add-ip="aws ec2 authorize-security-group-ingress --group-name MatchBOX --protocol tcp --port 22 --cidr $(ip)/32"
+
+
+#Functions
+mcd () { mkdir $1; cd $1;}
+
+# ----------------------
+# Git Aliases
+# ----------------------
+alias ga='git add'
+alias gaa='git add .'
+alias gaaa='git add -A'
+alias gb='git branch'
+alias gbd='git branch -d '
+alias gc='git commit'
+alias gcm='git commit -m'
+alias gco='git checkout'
+alias gcob='git checkout -b'
+alias gcom='git checkout master'
+alias gd='git diff'
+alias gda='git diff HEAD'
+alias gin='git init'
+alias gl='git log'
+alias glg='git log --graph --oneline --decorate --all'
+alias gld='git log --pretty=format:"%h %ad %s" --date=short --all'
+alias gm='git merge --no-ff'
+alias gp='git pull'
+alias gss='git status -s'
+alias gst='git stash'
+alias gstl='git stash list'
+alias gstp='git stash pop'
+alias gstd='git stash drop'
+
+# ----------------------
+# Git Functions
+# ----------------------
+# Git log find by commit message
+function glf() { git log --all --grep="$1"; }
+
+function note() {
+  filename=$(basename "$1")
+  extension="${filename##*.}"
+  filename="${filename%.*}"
+  cp ~/bin/pandoc/pandoc.css pandoc.css;
+  pandoc -s --mathjax $1 -o "${filename}.html" -c pandoc.css;
+  open http://localhost:8080 && httpster -p 8080;
+}

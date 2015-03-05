@@ -1,0 +1,40 @@
+{
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Alignment",
+		"AngularJS",
+		"AutoFileName",
+		"Bracketeer",
+		"BracketHighlighter",
+		"Color Highlighter",
+		"ColorPicker",
+		"CSS3",
+		"CSScomb",
+		"DashDoc",
+		"DocBlockr",
+		"Emmet",
+		"Floobits",
+		"Gist",
+		"GitGutter",
+		"Gutter Color",
+		"JavaScriptNext - ES6 Syntax",
+		"JSHint Gutter",
+		"JSLint",
+		"LESS",
+		"Modific",
+		"Numix Theme",
+		"Origami",
+		"Package Control",
+		"SCSS",
+		"SideBarEnhancements",
+		"Siteleaf Liquid Syntax",
+		"SublimeLinter",
+		"TabsExtra",
+		"Theme - Gravity",
+		"Theme - Spacefunk",
+		"Theme - Spacegray"
+	]
+}
